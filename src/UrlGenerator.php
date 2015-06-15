@@ -1,27 +1,28 @@
-<?php namespace Jaybizzle\SafeRoutes;
+<?php
 
-use Illuminate\Filesystem\Filesystem;
+namespace Jaybizzle\SafeRoutes;
+
 use Illuminate\Routing\UrlGenerator as M;
 
 class UrlGenerator extends M
 {
-	public function saferoute($name, $parameters = array(), $absolute = true)
-	{
-		if ( ! is_null($route = $this->routes->getByName($name)))
-		{
-			$safe_parameters = $this->formatRouteParameters($parameters);
-			return $this->toRoute($route, $safe_parameters, $absolute);
-		}
+    public function saferoute($name, $parameters = [], $absolute = true)
+    {
+        if (!is_null($route = $this->routes->getByName($name))) {
+            $safe_parameters = $this->formatRouteParameters($parameters);
 
-		throw new InvalidArgumentException("Route [{$name}] not defined.");
-	}
+            return $this->toRoute($route, $safe_parameters, $absolute);
+        }
 
-	public function formatRouteParameters($parameters)
-	{
-		foreach($parameters as $key => $param) {
-			$safe_parameters[$key] = \Safeurl::make($param);
-		}
+        throw new InvalidArgumentException("Route [{$name}] not defined.");
+    }
 
-		return $safe_parameters;
-	}
+    public function formatRouteParameters($parameters)
+    {
+        foreach ($parameters as $key => $param) {
+            $safe_parameters[$key] = \Safeurl::make($param);
+        }
+
+        return $safe_parameters;
+    }
 }
