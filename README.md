@@ -8,4 +8,4 @@ Add `Jaybizzle\SafeRoutes\SafeRoutesServiceProvider::class,` to `config/app.php`
 
 
 ### Usage
-`URL::saferoute('blog.article', [$blog->id, $blog->title])
+`URL::saferoute('blog.article', [$blog->id, $blog->title])`
