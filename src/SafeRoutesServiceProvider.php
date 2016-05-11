@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Laravel Safe Routes package.
+ *
+ * (c) Mark Beech <m@rkbee.ch>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Jaybizzle\SafeRoutes;
 
 use Illuminate\Routing\RoutingServiceProvider as RSP;
