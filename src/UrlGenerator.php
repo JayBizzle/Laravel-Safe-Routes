@@ -12,6 +12,7 @@
 namespace Jaybizzle\SafeRoutes;
 
 use Illuminate\Routing\UrlGenerator as M;
+use InvalidArgumentException;
 
 class UrlGenerator extends M
 {
