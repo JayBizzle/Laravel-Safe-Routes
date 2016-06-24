@@ -29,6 +29,10 @@ class UrlGenerator extends M
 
     public function formatRouteParameters($parameters)
     {
+        if (empty($parameters)) {
+            return $parameters;    
+        }
+        
         foreach ($parameters as $key => $param) {
             $safe_parameters[$key] = \Safeurl::make($param);
         }
